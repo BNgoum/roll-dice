@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Play Roll-dice
+
+- Cloner le repo
+- Lancer un yarn puis un yarn start
+
+
 ## Available Scripts
 
 In the project directory, you can run:

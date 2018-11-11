@@ -1,32 +1,87 @@
 .App {
+  display: flex;
+  color: #fff;
+  background-color: rgb(24, 24, 61);
+}
+
+h1 {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.wrapper-left, .wrapper-right {
+  display: flex;
+  flex-direction: column;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.wrapper-left {
+  flex: 4;
+}
+
+.wrapper-right {
+  flex: 1;
+  height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.wrapper-des {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper-inputs {
+  display: flex;
+  justify-content: center;
+  margin: 4rem 0;
+}
+
+.wrapper-input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 0 3rem;
 }
 
-.App-link {
-  color: #61dafb;
+.wrapper-input label {
+  margin-right:  1rem;
+  margin-bottom: 1.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.wrapper-input select {
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  text-align-last: center;
+  font-size: 1rem;
+}
+
+.button-lancer {
+  display: block;
+  font-size: 1.125rem;
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  padding: 8px 24px;
+  margin: 0 auto;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+}
+
+.button-lancer:hover {
+  border-color: rgb(223, 73, 73);
+  color: rgb(223, 73, 73);
+}
+
+hr {
+  width: 30%;
+  margin: 3rem auto;
+}
+
+.wrapper-animation {
+  text-align: center;
+}
+
+.wrapper-animation img {
+  width: 200px;
 }
