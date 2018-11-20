@@ -12,8 +12,8 @@ class Des extends Component {
     render() {
         return (
             <div className="wrapper-de">
-                <h4>Dé N° {this.props.numeroDeLance}</h4>
-                <p>{this.props.res}</p>
+                <h4>{this.props.libelle} {this.props.numeroDeLance}</h4>
+                { this.props.libelle === "Total" ? <p className="de-resultat">{this.props.res}</p> : <p>{this.props.res}</p> }
             </div>
         )
     }

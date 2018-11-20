@@ -8,21 +8,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nombreDes: null,
-      typeDes: null,
+      nombreDes: 3,
+      typeDes: 6,
       res: [],
-      nombreLances: 0,
       listeResultats: [],
       isDisplay: false,
       isLoading: false
     }
-  }
-
-  componentDidMount() {
-    this.setState({
-      nombreDes: 3,
-      typeDes: 6
-    })
   }
 
   handleChangeNbDes = (e) => {
@@ -51,12 +43,13 @@ class App extends Component {
     if (this.state.isDisplay) {
       return (
         <div className="wrapper-des">
-          {this.state.res[0] ? <Des numeroDeLance={1} res={this.state.res[0]}/> : null}
-          {this.state.res[1] ? <Des numeroDeLance={2} res={this.state.res[1]}/> : null}
-          {this.state.res[2] ? <Des numeroDeLance={3} res={this.state.res[2]}/> : null}
+          {this.state.res[0] ? <Des libelle="Dé n°" numeroDeLance={1} res={this.state.res[0]}/> : null}
+          {this.state.res[1] ? <Des libelle="Dé n°" numeroDeLance={2} res={this.state.res[1]}/> : null}
+          {this.state.res[2] ? <Des libelle="Dé n°" numeroDeLance={3} res={this.state.res[2]}/> : null}
+          <Des libelle="Total" res={this.state.currentTotal}/>
         </div>
       )
-  }
+    }
   }
 
   handleClick = () => {
@@ -67,22 +60,25 @@ class App extends Component {
     })
     
     setTimeout(() => {
+      let arrayTotalRes = [];
       let arrayRes = [];
+      let totalRes = 0;
       for(let i = 0 ; i < parseInt(this.state.nombreDes) ; i++) {
         let chiffreAleatoire = this.chiffreAleatoire(parseInt(this.state.typeDes));
         arrayRes.push(chiffreAleatoire);
+        totalRes += chiffreAleatoire;
       }
+
+      arrayTotalRes.push(totalRes, arrayRes);
 
       this.setState( prevState => ({
         isDisplay: true,
-        nombreLances: this.state.nombreLances + 1,
-        res: arrayRes,
-        listeResultats: [...prevState.listeResultats, arrayRes],
+        res: arrayTotalRes[1],
+        currentTotal: arrayTotalRes[0],
+        listeResultats: [...prevState.listeResultats, arrayTotalRes],
         isLoading: false
       }))
     }, 2000);
-    
-    
   }
 
   chiffreAleatoire(max) {
@@ -128,7 +124,7 @@ class App extends Component {
         </div>
 
         <div className="wrapper-right">
-          <ListeLances lances={this.state.listeResultats} />
+          <ListeLances lances={this.state.listeResultats}/>
         </div>
       </div>
     );

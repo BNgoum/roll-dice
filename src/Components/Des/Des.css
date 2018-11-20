@@ -8,7 +8,12 @@
     background-color: rgb(223, 73, 73);
 }
 
+h4 {
+    text-align: center;
+}
+
 p {
+    width: 40px;
     font-size: 2rem;
     padding: 0.5rem;
     margin-top: 0;
@@ -16,4 +21,9 @@ p {
     border-radius: 8px;
     text-align: center;
     color: #000;
+}
+
+.de-resultat {
+    color: #fff;
+    background: #000;
 }
